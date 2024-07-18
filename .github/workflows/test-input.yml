@@ -1,4 +1,4 @@
-name: test1-input
+name: test-input
 run-name: ${{ github.actor }} is learning GitHub Actions
 
 on:
