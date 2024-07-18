@@ -15,14 +15,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - name: Log start time
-        run: echo "Job started at $(date -u)
+        run: echo "Job started at $(date -u)"
 
       - run: npm install -g bats
       - run: bats -v
 
       - name: Log end time
-        run: echo "Job ended at $(date -u)
+        run: echo "Job ended at $(date -u)"
 
 
 
