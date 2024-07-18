@@ -1,4 +1,4 @@
-name: test-workflow-activity
+name: test-workflow-duration
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
   #Trigger a specific brach:
