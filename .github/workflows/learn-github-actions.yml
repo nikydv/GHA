@@ -1,6 +1,26 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+# on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      store:
+        description: 'Choose store'
+        required: true
+        type: choice
+        default: 'Google'
+        options:
+          - Google
+          - Amazon
+          - Huawei
+      google-play-upload:
+        description: 'Is Google Play upload required?'
+        required: true
+        type: choice
+        default: 'false'
+        options:
+          - 'true'
+          - 'false'
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
