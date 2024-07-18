@@ -1,0 +1,28 @@
+name: test-workflow-activity
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: 
+  #Trigger a specific brach:
+  push:
+    branches:
+      - main
+  workflow_dispatch: 
+      
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Log start time
+        run: echo "Job started at $(date -u)
+
+      - run: npm install -g bats
+      - run: bats -v
+
+      - name: Log end time
+        run: echo "Job ended at $(date -u)
+
+
+
