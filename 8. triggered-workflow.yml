@@ -1,0 +1,15 @@
+# .github/workflows/triggered-workflow.yml
+
+name: Triggered Workflow
+
+on:
+  repository_dispatch:
+    types: [triggered_event]
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Process variable
+        run: |
+          echo "Received variable: ${{ github.event.client_payload.my_variable }}"

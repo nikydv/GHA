@@ -1,0 +1,18 @@
+# .github/workflows/trigger-workflow.yml
+
+name: Trigger Workflow
+
+on:
+  workflow_dispatch: # Manual trigger for demonstration purposes
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger another workflow
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"triggered_event","client_payload":{"my_variable":"some_value"}}'
